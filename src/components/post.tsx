@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import TimeAgo from "javascript-time-ago";
 import en from 'javascript-time-ago/locale/en'
 
@@ -7,6 +7,10 @@ const timeAgo = new TimeAgo('en-US')
 
 function Post({post}:any) {
     const [thePost,setPost] = useState(post)
+
+    useEffect(()=>{
+        fetch(`https://www.tedooo.com/?itemId=${thePost.id}`)
+    },[])
     return (
         <div className={"bg-white w-3/4  shadow flex flex-col space-y-4 rounded"}>
             <div className={"flex flex-row space-x-2 p-4 pb-0 cursor-pointer"}>
