@@ -1,10 +1,15 @@
 import React from 'react';
+import {QueryClient, QueryClientProvider, useInfiniteQuery} from "react-query";
+import BaseLayout from "./components/base-layout";
 
 function App() {
+
+
+    const queryClient = new QueryClient()
   return (
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <QueryClientProvider client={queryClient}>
+      <BaseLayout />
+      </QueryClientProvider>
   );
 }
 
